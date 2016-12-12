@@ -6,6 +6,17 @@ html {
   padding: 2px;
 }
 
+h1 {
+  font-size: xx-large;
+  font-weight: bold;
+  color: #464588;
+}
+
+.logo {
+  width: 500px;
+  height: 300px;
+}
+
 .footer {
   margin: 2px;
   padding: 2px;
