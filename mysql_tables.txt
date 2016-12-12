@@ -32,7 +32,9 @@ CREATE TABLE drive (
   lastname varchar(20),
   phone varchar(20),
   email varchar(40),
-  time datetime,
+  drive_day date,
+  drive_time time,
+  num_pass number(1),
   pickup varchar(100),
   destination varchar(100),
   instructions varchar(200))
