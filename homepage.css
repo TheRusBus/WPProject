@@ -1,0 +1,16 @@
+/* File: homepage.css
+*/
+
+html {
+  margin: 2px;
+  padding: 2px;
+}
+
+.footer {
+  margin: 2px;
+  padding: 2px;
+  border-top: 1px double;
+  border-bottom: 1px solid;
+  font-style: italic;
+  font-size: x-small;
+}
