@@ -6,21 +6,40 @@ html {
   padding: 2px;
 }
 
+#wrapper {
+  width: 1000px;
+  margin: 0 auto;
+}
+
 h1 {
   font-size: xx-large;
   font-weight: bold;
+  font-family: "Arial Black", Gadget, sans-serif;
   color: #464588;
 }
 
+.links {
+    background-color: #4CAF50;
+    border: none;
+    color: white;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    cursor: pointer;
+}
+
 .logo {
-  width: 500px;
+  width: 675px;
   height: 300px;
 }
 
 .adCol {
   position: absolute;
-  top: 150px;
-  left: 700px;
+  top: 275px;
+  left: 900px;
   width: 250px;
   min-height: 300px;
   max-height: 400px;
