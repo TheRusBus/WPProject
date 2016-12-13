@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Professional Car Service -- Austin, Texas</title>
+    <link rel="stylesheet" title="basicstyle" type="text/css" href="./homepage.css" media="all" />
+  </head>
+  <body>
+
+<!-Logo and navigation->
+    <div class="header">
+      <h1>Vince's Car Service</h1>
+      <h3>Professional Transportation Operating in Austin, Texas</h3>
+      <nav>
+        <h4><a href="./homepage.html">Home</a> <a href="./about.html">About Me</a> <a href="./schedule.html">Schedule</a> <a href="./contact.html">Contact Us</a></h4>
+      </nav>
+      <figure class="logo">
+        <img class="logo" src="./homelogo.jpg" alt="Home Logo" title="Home Logo" />
+      </figure>
+    </div>
+
+<!-Main section->
+    <div class="main">
+      <h2>Schedule a Drive</h2>
+      <table>
+        <form method="post" action="">
+          <tr>
+            <td>Drive Date</td>
+            <td><input type="date" name="day" /></td>
+          </tr>
+          <tr>
+            <td>Drive Time</td>
+            <td><input type="time" name="time" /></td>
+          </tr>
+          <tr>
+          <tr>
+            <td>Number of Passengers</td>
+            <td><input type="number" name="numpass" min="1" max="4" value="1"/></td>
+          </tr>
+            <td>Pickup Location</td>
+            <td><input type="text" name="pickup" /></td>
+          </tr>
+          <tr>
+            <td>Destination(optional)</td>
+            <td><input type="text" name="destination" /></td>
+          </tr>
+          <tr>
+            <td>Special Driving Instructions(optional)</td>
+            <td><input type="textarea" rows="4" name="instructions" /></td>
+          </tr>
+          <tr>
+            <td><input type="submit" name="submit" value="Submit" /></td>
+            <td><input type="reset" name="reset" value="Reset" /></td>
+          </tr>
+        </form>
+      </table>
+    </div>
+
+<!-Login/Singup ad column/Contact info->
+    <div class="adCol">
+      <form method="get" action="">
+        <p>
+          <input type="button" name="login" value="Login" />
+        </p>
+        <p>
+          <input type="button" name="signup" value="Signup" />
+        </p>
+      </form>
+    </div>
+
+
+<!-Footer->
+    <div class="footer">
+      <p>
+        Copyright &copy; 2016 Vince's Car Service<br/>
+        Website by Vince Hochstein, Chin-lin Yu & Russell Gates
+      </p>
+    </div>
+  </body>
+</html>

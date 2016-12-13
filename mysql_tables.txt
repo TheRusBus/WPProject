@@ -1,0 +1,41 @@
+User Table
+firstname
+lastname
+phone number
+email
+password
+address
+
+
+Drive Schedule Table
+firstname
+lastname
+email
+phone number
+datetime
+pickup location
+destination(optional)
+special instructions(optional)
+
+CREATE TABLE user (
+  firstname varchar(20),
+  lastname varchar(20),
+  phone varchar(20),
+  email varchar(40),
+  password varchar(20),
+  address varchar(100))
+  ;
+
+
+CREATE TABLE drive (
+  firstname varchar(20),
+  lastname varchar(20),
+  phone varchar(20),
+  email varchar(40),
+  drive_day date,
+  drive_time time,
+  num_pass number(1),
+  pickup varchar(100),
+  destination varchar(100),
+  instructions varchar(200))
+  ;

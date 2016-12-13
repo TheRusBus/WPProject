@@ -6,6 +6,31 @@ html {
   padding: 2px;
 }
 
+h1 {
+  font-size: xx-large;
+  font-weight: bold;
+  color: #464588;
+}
+
+.logo {
+  width: 500px;
+  height: 300px;
+}
+
+.adCol {
+  position: absolute;
+  top: 150px;
+  left: 700px;
+  width: 250px;
+  min-height: 300px;
+  max-height: 400px;
+  margin: 2px;
+  padding-top: 2px;
+  padding-right: 20px;
+  padding-bottom: 20px;
+  padding-left: 20px;
+}
+
 .footer {
   margin: 2px;
   padding: 2px;
