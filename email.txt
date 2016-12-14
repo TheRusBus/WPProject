@@ -1,0 +1,6 @@
+HTML pages that validate: The home page and each page containing content is made using HTML
+Cascading Style Sheets that validate: The home page, content pages and signup form contain a cascading style sheet
+JavaScript front end form verification: The signup form contains JavaScript to ensure no entries are entered blank
+PHP script to process form data: A php script is used for the signup form
+MySQL database back end: A database is used to store the information of all the people who signup on the website
+PHP interface to the MySQL database: A php script is used to retrieve information stored in the database to ensure someone does not signup with an email and password already in the database
