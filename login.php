@@ -12,25 +12,21 @@ session_start();
   
   
 if(!array_key_exists("page", $_POST)){
-        $names = array();
-        $passwords = array();
-        $file = fopen("./password.txt", "r");
-        $index = 0;
-        while(!feof($file))
-        {
-                $line = fgets($file);
-                $line = trim($line);
-                $lines = explode(":", $line);
-                $names[$index] = $lines[0];
-                $passwords[$index] = $lines[1];
-                $index += 1;
-        }
-        fclose($file);
         $usernamecheck = false;
         $passwordcheck = false;
-
+        $usernames= array();
+        $passwords= array();
+        $index=0;
+        $table = "user";
+        $result = mysqli_query($connect, "SELECT * from $table");
+        while ($row = $result->fetch_row())
+        {
+          array_push($usernames, $row[3]);
+          array_push($passwords, $row[4]);
+          $index=$index+1;
+        }
         for($i = 0; $i < $index; $i++){
-                if($username === $names[$i])
+                if($username === $usernames[$i])
                 {
                         $usernamecheck = true;
                 }
@@ -40,15 +36,29 @@ if(!array_key_exists("page", $_POST)){
                 }
         }
 }
+
 if (!array_key_exists("username", $_POST) && !array_key_exists("page", $_SESSION)){
+   if($_POST["register"] == "Register" ){
+   $table = "user";
+   $firstname = $_POST["firstname"];
+   $lastname = $_POST["lastname"];
+   $phone = $_POST["phone"];
+   $email = $_POST["email"];
+   $password = $_POST["password"];
+   $address = $_POST["address"];
+   $stmt = mysqli_prepare ($connect, "INSERT INTO $table VALUES (?, ?, ?, ?, ?, ?)");
+   mysqli_stmt_bind_param ($stmt, 'ssssss', $firstname, $lastname, $phone, $email,     $password, $address);
+   mysqli_stmt_execute($stmt);
+   mysqli_stmt_close($stmt);
+   }
    print <<<LOGIN
    <html>
    <head>
       <title> Log in or Sign Up </title>
-      <link rel="stylesheet" type="text/css" href="dinner.css">
+      <link rel="stylesheet" type="text/css" href="login.css">
    </head>
    </body>
-      <h1> Sign In or Register </h1>
+      <h1> Sign In </h1>
       <form id="signin" action="./login.php" method="post">
       <table>
          <tr><td> Username </td><td><input type="text" name="username" value=""></td></tr>
@@ -59,8 +69,9 @@ if (!array_key_exists("username", $_POST) && !array_key_exists("page", $_SESSION
       <h1> Register </h1>
       <form id="register" action="./login.php" method="post">
       <table>
-         <tr><td> Full Name </td><td><input type="text" name="fullname" value=""></td></tr>
-         <tr><td> Email </td><td><input type="email" name="email" value=""></td></tr>
+         <tr><td> First Name </td><td><input type="text" name="firstname" value=""></td></tr>
+         <tr><td> Last Name </td><td><input type="text" name="lastname" value=""></td></tr>
+         <tr><td> Email (username) </td><td><input type="email" name="email" value=""></td></tr>
          <tr><td> Confirm Email </td><td><input type="email" name="cemail" value=""></td></tr>
          <tr><td> Phone </td><td><input type="tel" name="phone" value=""></td></tr>
          <tr><td> Password </td><td><input type="text" name="password" value=""></td></tr>
@@ -75,6 +86,7 @@ if (!array_key_exists("username", $_POST) && !array_key_exists("page", $_SESSION
 LOGIN;
 }
 else if($usernamecheck==True && $passwordcheck == True && !array_key_exists("page", $_SESSION)){
+
       print <<<SUCCESSREGISTER
    <html>
    <head>
@@ -107,10 +119,10 @@ else if (($usernamecheck == False || $passwordcheck == False) && !array_key_exis
       <title> Log in or Sign Up </title>
       <h1> Username or Password is Incorrect <br> Please try again or sign up</h1>
       
-      <link rel="stylesheet" type="text/css" href="dinner.css">
+      <link rel="stylesheet" type="text/css" href="login.css">
    </head>
    </body>
-      <h1> Sign In or Register </h1>
+      <h1> Sign In </h1>
       <form id="signin" action="./login.php" method="post">
       <table>
          <tr><td> Username </td><td><input type="text" name="username" value=""></td></tr>
@@ -121,8 +133,9 @@ else if (($usernamecheck == False || $passwordcheck == False) && !array_key_exis
       <h1> Register </h1>
       <form id="register" action="./login.php" method="post">
       <table>
-         <tr><td> Full Name </td><td><input type="text" name="fullname" value=""></td></tr>
-         <tr><td> Email </td><td><input type="email" name="email" value=""></td></tr>
+         <tr><td> First Name </td><td><input type="text" name="firstname" value=""></td></tr>
+         <tr><td> Last Name </td><td><input type="text" name="lastname" value=""></td></tr>
+         <tr><td> Email (username)</td><td><input type="email" name="email" value=""></td></tr>
          <tr><td> Confirm Email </td><td><input type="email" name="cemail" value=""></td></tr>
          <tr><td> Phone </td><td><input type="tel" name="phone" value=""></td></tr>
          <tr><td> Password </td><td><input type="text" name="password" value=""></td></tr>
@@ -136,6 +149,7 @@ else if (($usernamecheck == False || $passwordcheck == False) && !array_key_exis
    </html>
 FAILEDLOGIN;
 }
+
    session_destroy();
    
 ?>

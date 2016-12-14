@@ -15,11 +15,10 @@ function validateSign(){
         }
 }
 
-document.getElementById("register").onsubmit = validateRes;
+document.getElementById("register").onsubmit = validateSign;
 
 function validateRes(){
         var form = document.getElementById("register");
-        var name = form.fullname.value;
         var pass = form.password.value;
         var cpass= form.cpassword.value;
         var email= form.email.value;
@@ -29,9 +28,9 @@ function validateRes(){
                 window.alert("Passwords do not match")
                 return false;
         }
-        if (email!=cemail || pass.length<1 || pass.length>20){
+        if (email!=cemail || email.length<1 || email.length>20){
                 window.alert("Emails do not match")
                 return false;
-        }        
+        }     
         
 }
