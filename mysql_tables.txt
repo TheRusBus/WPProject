@@ -1,21 +1,9 @@
-User Table
-firstname
-lastname
-phone number
-email
-password
-address
+host: fall-2016.cs.utexas.edu
+user: russell
+password: ~_wHH6XLo+
+database: cs329e_russell
+port: 3306
 
-
-Drive Schedule Table
-firstname
-lastname
-email
-phone number
-datetime
-pickup location
-destination(optional)
-special instructions(optional)
 
 CREATE TABLE user (
   firstname varchar(20),
@@ -34,7 +22,7 @@ CREATE TABLE drive (
   email varchar(40),
   drive_day date,
   drive_time time,
-  num_pass number(1),
+  num_pass int,
   pickup varchar(100),
   destination varchar(100),
   instructions varchar(200))
